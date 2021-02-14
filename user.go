@@ -1,26 +1,21 @@
 package main
 
-type Color int
-
-const (
-	Brown Color = iota + 1
-	Black
-	Green
-	Blue
-)
-
 type User struct {
 	Name      string
 	Age       int
-	HairColor Color
-	EyeColor  Color
+	HigherEducation bool
+	Languages []string
 }
 
-func NewUser(name string, age int, hair, eye Color) *User {
+func (u User) IsAdult() bool  {
+	return u.Age >= 18
+}
+
+func NewUser(name string, age int, higherEducation bool, languages []string) *User {
 	return &User{
 		Name:      name,
 		Age:       age,
-		HairColor: hair,
-		EyeColor:  eye,
+		HigherEducation: higherEducation,
+		Languages:  languages,
 	}
 }

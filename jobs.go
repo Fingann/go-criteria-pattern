@@ -1,10 +1,12 @@
 package main
+// ======================= Job Interface =======================
 
 type Job interface {
 	GetDescription() string
 	GetSalary() int
-	GetUserCriterias() []Criteria
 }
+
+// ======================= PainterJOB =======================
 
 type Painter struct {
 }
@@ -13,14 +15,11 @@ func (p *Painter) GetDescription() string {
 	return "Painting walls and houses"
 }
 
-func (p *Painter) GetUserCriterias() []Criteria {
-	return []Criteria{
-		&AgeCriteria{Age: 20},
-	}
-}
 func (p *Painter) GetSalary() int {
 	return 5
 }
+
+// ======================= TaxiDriverJOB =======================
 
 type TaxiDriver struct {
 }
